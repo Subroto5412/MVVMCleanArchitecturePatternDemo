@@ -2,13 +2,13 @@ package com.bd.mvvmcleanarchitecturepatterndemo.data.model
 
 data class Movies(
     val page: Int?,
-    val results: List<Results?>?
-){
+    val results: List<Results>
+) {
     data class Results(
-        val id: Long? = 0,
-        val original_title: String? = "",
-        val overview: String? = "",
-        val poster_path: String? = "",
-        val vote_average: String? = ""
+        val id:Long?,
+        val original_title:String?,
+        val overview:String?,
+        val poster_path:String?,
+        val vote_average:String?
     )
 }

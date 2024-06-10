@@ -84,5 +84,26 @@ dependencies {
 
     //kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0-alpha01")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0-alpha01")
+
+    //hilt viewmodel
+   // implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    //navigation
+    implementation("androidx.navigation:navigation-compose:2.5.1")
+
+    //ViewModels
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+
+    implementation("io.coil-kt:coil-compose:2.1.0")
+    implementation("androidx.compose.ui:ui-unit-android:1.6.0")
+
+
 }
