@@ -1,6 +1,7 @@
 package com.bd.mvvmcleanarchitecturepatterndemo.common.base
 
 import com.bd.mvvmcleanarchitecturepatterndemo.common.Result
+import com.bd.mvvmcleanarchitecturepatterndemo.data.model.Movies
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -16,7 +17,7 @@ abstract class BaseRepository {
     suspend fun <T> safeApiCall(
         dispatcher: CoroutineDispatcher = Dispatchers.IO,
         apiCall:suspend ()-> Response<T>
-    ): Flow<Result<T>> = flow {
+    ): Flow<kotlin.Result<Movies>> = flow {
         emit(Result.Loading)
         val response = apiCall()
         if (response.isSuccessful){
