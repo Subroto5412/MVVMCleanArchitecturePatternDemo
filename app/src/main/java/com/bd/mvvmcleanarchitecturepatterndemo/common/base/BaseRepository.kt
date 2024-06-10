@@ -17,7 +17,7 @@ abstract class BaseRepository {
     suspend fun <T> safeApiCall(
         dispatcher: CoroutineDispatcher = Dispatchers.IO,
         apiCall:suspend ()-> Response<T>
-    ): Flow<kotlin.Result<Movies>> = flow {
+    ): Flow<Result<T & Any>> = flow {
         emit(Result.Loading)
         val response = apiCall()
         if (response.isSuccessful){
