@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.key
@@ -67,20 +69,27 @@ fun MovieScreen(
 fun EachRow(
     res: Movies.Results
 ){
-    Row(modifier = Modifier.fillMaxWidth()) {
-        Image(painter = rememberAsyncImagePainter(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data("${ApiService.BASE_POSTER_URL}${res.poster_path}")
-                .placeholder(R.drawable.ic_launcher_foreground)
-                .crossfade(true)
-                .transformations(CircleCropTransformation())
-        ), contentDescription = "",
-            modifier = Modifier.size(100.dp)
-                .padding(10.dp))
-        Column(modifier = Modifier.fillMaxWidth().padding(16.dp).align(Alignment.CenterVertically)) {
-            Text(text = res.original_title!!, style = TextStyle(fontSize = 16.sp), textAlign = TextAlign.Center)
-            Text(text = res.overview!!, style = TextStyle(fontSize = 12.sp), textAlign = TextAlign.Center)
+    Card(modifier = Modifier.fillMaxSize().padding(8.dp), elevation = CardDefaults.cardElevation(
+        defaultElevation = 2.dp
+    ),colors = CardDefaults.cardColors(
+        containerColor = Color(0xFFF7F2F9),
+    ), shape = RoundedCornerShape(8.dp)
+    ) {
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Image(painter = rememberAsyncImagePainter(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data("${ApiService.BASE_POSTER_URL}${res.poster_path}")
+                    .placeholder(R.drawable.ic_launcher_foreground)
+                    .crossfade(true)
+                    .transformations(CircleCropTransformation())
+            ), contentDescription = "",
+                modifier = Modifier.size(100.dp)
+                    .padding(10.dp))
+            Column(modifier = Modifier.fillMaxWidth().padding(16.dp).align(Alignment.CenterVertically)) {
+                Text(text = res.original_title!!, style = TextStyle(fontSize = 16.sp), textAlign = TextAlign.Center)
+                Text(text = res.overview!!, style = TextStyle(fontSize = 12.sp), textAlign = TextAlign.Center)
 
+            }
         }
     }
 }
